@@ -1,0 +1,38 @@
+<template>
+  <style>
+    body {
+      background-color: lightcyan;
+    }
+    .markdown-editor {
+      width: 100%;
+      height: 80vh;
+    }
+    
+    .markdown-editor .editor,
+    .markdown-editor .preview {
+      float: left;
+      width: 45%;
+      height: 100%;
+      padding: 10px;
+    }
+    .markdown-editor .editor {
+      border: solid 5px black;
+    }
+    .markdown-editor .preview {
+      margin-left: 50px;
+    }
+
+    .toolbar {
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <h1>Aurelia Markdown Redux</h1>
+  
+  <div class="markdown-editor">
+    <textarea class="editor"
+              keyup.trigger="keyupHandler($event.target.value) & debounce"
+              value.one-way="raw"></textarea>
+    <div class="preview" innerHTML.bind="html"></div>
+  </div>
+</template>
